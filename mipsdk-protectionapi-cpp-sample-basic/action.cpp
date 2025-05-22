@@ -45,6 +45,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <stdio.h>
+#include "AuthClient.h"
 
 #ifdef _WIN32
 	#define FREAD(buffer, elementSize, count, stream) fread_s(buffer, count, elementSize, count, stream)
@@ -71,6 +72,13 @@ namespace sample {
 			mUsername(username),
 			mPassword(password) {
 			mAuthDelegate = std::make_shared<sample::auth::AuthDelegateImpl>(mAppInfo, mUsername, mPassword);
+		}
+
+		Action::Action(const mip::ApplicationInfo appInfo, const std::string& username, const std::string& clientID, const std::string& tenantID, const std::string& redirectURI, const bool generateAuditEvents)
+			: mAppInfo(appInfo), mUsername(username),
+			mGenerateAuditEvents(generateAuditEvents)
+		{
+			mAuthDelegate = std::make_shared<sample::auth::AuthDelegateImpl>(mAppInfo, username, clientID, tenantID, redirectURI);
 		}
 		
 		Action::~Action()

@@ -63,6 +63,15 @@ namespace sample {
 			Action(const mip::ApplicationInfo appInfo,
 				const std::string& username,
 				const std::string& password);
+
+			Action(const mip::ApplicationInfo appInfo,
+				const std::string& username,
+				const std::string& clientID,
+				const std::string& tenantID,
+				const std::string& redirectURI,
+				/*const std::string& scope,*/
+				const bool generateAuditEvents);
+
 			~Action();
 
 			void ListTemplates();							// List all labels associated engine loaded for user						
@@ -83,6 +92,7 @@ namespace sample {
 			std::shared_ptr<mip::ProtectionEngine> mEngine;								// mip::FileEngine object to handle user-specific actions. 
 			std::shared_ptr<sample::consent::ConsentDelegateImpl> mConsentDelegate; // Implements consent flow. Review consent_delegate_impl.cpp for implementation details.						
 			mip::ApplicationInfo mAppInfo;											// mip::ApplicationInfo object for storing client_id and friendlyname
+			bool mGenerateAuditEvents;
 
 			std::string mUsername; // store username to pass to auth delegate and to generate Identity
 			std::string mPassword; // store password to pass to auth delegate

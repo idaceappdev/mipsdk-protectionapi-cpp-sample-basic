@@ -156,18 +156,22 @@
   <ItemGroup>
     <ClCompile Include="action.cpp" />
     <ClCompile Include="auth.cpp" />
+    <ClCompile Include="AuthClient.cpp" />
     <ClCompile Include="auth_delegate_impl.cpp" />
     <ClCompile Include="consent_delegate_impl.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="protection_observers.cpp" />
+    <ClCompile Include="TokenCache.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="action.h" />
     <ClInclude Include="auth.h" />
+    <ClInclude Include="AuthClient.h" />
     <ClInclude Include="auth_delegate_impl.h" />
     <ClInclude Include="consent_delegate_impl.h" />
     <ClInclude Include="protection_observers.h" />
+    <ClInclude Include="TokenCache.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
