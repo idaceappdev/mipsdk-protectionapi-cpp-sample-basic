@@ -58,10 +58,6 @@ int main()
 	// Client ID should be the client ID registered in Azure AD for your custom application.
 	std::string clientId = "YOUR CLIENT ID";
 
-	// Username and password are required in this sample as the oauth2 token is obtained via Python script and MSAL auth.
-	// DO NOT embed credentials for administrative or production accounts. 
-	std::string userName = "YOUR TEST USER ID";
-	std::string password = "YOUR TEST USER PASSWORD";
 
 	// Create the mip::ApplicationInfo object. 
 
