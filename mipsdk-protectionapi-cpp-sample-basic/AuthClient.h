@@ -12,10 +12,10 @@ public:
     void startLoginFlow();
     std::wstring getAccessToken();
 
-    std::wstring getAccessToken(std::string scope);
+    std::wstring getAccessToken(std::string userID, std::string scope);
 
 private:
-    std::wstring clientId_, tenantId_, redirectUri_, scope_;
+    std::wstring clientId_, tenantId_, redirectUri_, scope_, userID_;
     std::wstring accessToken_, refreshToken_;
     std::chrono::system_clock::time_point expiry_;
     std::wstring codeVerifier_;

@@ -296,7 +296,7 @@ bool AuthClient::exchangeCodeForToken(const std::wstring& code) {
     refreshToken_ = extractJsonField(response, L"refresh_token");
     int expiresIn = std::stoi(extractJsonField(response, L"expires_in"));
     expiry_ = std::chrono::system_clock::now() + std::chrono::seconds(expiresIn);
-    mTokenCache.updateToken(scope_, accessToken_, expiry_);
+    mTokenCache.updateToken(userID_, scope_, accessToken_, expiry_);
     //saveTokenToFile();
     return !accessToken_.empty();
 }
@@ -339,14 +339,15 @@ std::wstring AuthClient::getAccessToken() {
 }
 
 
-std::wstring AuthClient::getAccessToken (std::string scope) {
+std::wstring AuthClient::getAccessToken (std::string userID, std::string scope) {
 
     scope_ = convertToWString(scope);
+    userID_ = convertToWString(userID);
     std::wstring waccessToken;
 
-    if (mTokenCache.isTokenValid(scope_))
+    if (mTokenCache.isTokenValid(userID_,scope_))
     {
-        waccessToken = mTokenCache.getToken(scope_);
+        waccessToken = mTokenCache.getToken(userID_, scope_);
     }
     else
     {        

@@ -71,13 +71,12 @@ namespace sample {
 		}
 
 		bool AuthDelegateImpl::AcquireOAuth2Token(
-			const mip::Identity& /*identity*/,
+			const mip::Identity& identity,
 			const OAuth2Challenge& challenge,
 			OAuth2Token& token) {
 
-			string accessToken;
-			string resource = challenge.GetResource();
-
+			std::string accessToken;
+			std::string resource = challenge.GetResource();
 			std::string scope;
 
 			if (!resource.empty() && resource.back() == '/') {
@@ -87,25 +86,23 @@ namespace sample {
 				scope = resource + "/.default";
 			}
 
-			//string authority = challenge.GetAuthority();
+			if (mptrAuthClient) {
+				// Convert scope and userId to wstring for the token cache
+				//std::wstring wScope = StringToWString(scope);
+				//std::wstring wUserId = StringToWString(userId);
 
-
-
-			if (mptrAuthClient)
-			{
-				//accessToken = mptrAuthClient->getAccessToken(scope);
-				std::wstring waccesstoken = mptrAuthClient->getAccessToken(scope);
-				accessToken = WStringToString(waccesstoken);
+				std::wstring wToken = mptrAuthClient->getAccessToken(mUserName, scope);
+				accessToken = WStringToString(wToken);
 			}
-			else
-			{
-				accessToken = sample::auth::AcquireToken(mUserName, mPassword, mApplicationInfo.applicationId, challenge.GetResource(), challenge.GetAuthority());
+			else {
+				accessToken = sample::auth::AcquireToken(
+					mUserName, mPassword,
+					mApplicationInfo.applicationId,
+					challenge.GetResource(),
+					challenge.GetAuthority());
 			}
-
-			//call our AcquireToken function, passing in username, password, clientId, and getting the resource/authority from the OAuth2Challenge object
 
 			token.SetAccessToken(accessToken);
-
 			return true;
 		}
 

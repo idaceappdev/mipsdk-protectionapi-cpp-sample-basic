@@ -56,7 +56,7 @@ int main()
 	string decryptedText;
 	
 	// Client ID should be the client ID registered in Azure AD for your custom application.
-	std::string clientId = "YOUR CLIENT ID";
+	std::string clientId = "YOUR_CLIENT_ID";
 
 
 	// Create the mip::ApplicationInfo object. 
@@ -70,7 +70,7 @@ int main()
 	// Username and password are required in this sample as the oauth2 token is obtained via Python script and basic auth.
 	//Action action = Action(appInfo, userName, password);
 
-	Action action = Action(appInfo, "YOUR/USER UPN", "YOUR CLIENT ID", "YOUR TENANT ID", "http://localhost:8080", true);
+	Action action = Action(appInfo, "YOUR_UPN", "YOUR_CLIENT_ID", "YOUR_TENANT_ID", "http://localhost:8080", true);
 
 	while (true)
 	{
