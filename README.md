@@ -2,7 +2,6 @@
 page_type: sample
 languages:
 - cpp
-- python
 products:
 - azure
 description: "This application demonstrates using the MIP SDK Protection API to list available templates, then to encrypt/decrypt a string with that template."
@@ -99,9 +98,6 @@ Press F5 to run the sample. The console application will start and after a brief
 
 The application will obtain a publishing license, use it to encrypt the string, then to decrypt the string.
 
-## Troubleshooting
-
-If the application fails to authenticate, ensure that python.exe is in the system path and that the version is Python 2.7. Alternatively, updated line 61 in auth.cpp to point to the exact path of the executable.
 
 
 ## Resources
