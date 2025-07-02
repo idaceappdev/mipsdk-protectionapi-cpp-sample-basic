@@ -13,9 +13,12 @@ urlFragment: mipsdk-protectionapi-cpp-sample-basic
 
 ## Summary
 
-This application demonstrates using the MIP SDK Protection API to list available templates, then to encrypt/decrypt a string with that template.
+This sample is originally forked from https://github.com/Azure-Samples/mipsdk-protectionapi-cpp-sample-basic. It demonstrates how to use the MIP SDK Protection API to list available templates and encrypt or decrypt a string using a selected template. It utilizes the authorization code grant flow to acquire tokens for accessing the MIP SDK Protection API.
+
+Note: This sample is intended for Windows platforms.
 
 The application demonstrates the following:
+
 
 - Initializing the `ProtectionProfile`
 - Adding the `ProtectionEngine`
@@ -29,8 +32,7 @@ The application demonstrates the following:
 ### Prerequisites
 
 - Visual Studio 2015 or later with Visual C++ development features installed
-- Python 3.8 or greater installed and in the system path
-- MSAL module for Python is installed via `pip install msal`
+
 
 ### Sample Setup
 
@@ -75,16 +77,15 @@ The **Application registration** screen should now be displaying your new applic
 1. Select **Authentication**.
 2. Select **Add a platform**.
 3. Select **Mobile and desktop applications**
-4. Select the default native client redirect URI, which should look similar to **https://login.microsoftonline.com/common/oauth2/nativeclient**.
-5. Under **Advanced settings** set **Treat as a public client** to **yes**.
-   > This is required only for the MIP SDK sample apps using MSAL for Python.
-6. Select **configure** and be sure to save and changes if required. 
+4. Select the default native client redirect URI, which should look similar to **https://login.microsoftonline.com/common/oauth2/nativeclient** and an additional redirect URI: **http://localhost:8080**.
+5. Select **configure** and be sure to save and changes if required. 
 
-### Update Client ID, Username, and Password
+### Update Client ID, Username, and TenantID
 
 1. Open up **main.cpp**.
-2. Replace **YOUR CLIENT ID HERE** with the client ID copied from the AAD App Registration.
-3. Find the tokens for **YOUR USERNAME HERE** and **YOUR PASSWORD HERE** and insert test user credentials. 
+2. Replace **YOUR_CLIENT_ID** with the client ID copied from the AAD App Registration.
+3. Find the tokens for **YOUR_UPN** & **YOUR_TENANT_ID** and insert test user's UPN and Tenant ID. 
+
 
 > DO NOT hard code a production username and password.
 
