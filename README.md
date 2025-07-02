@@ -37,7 +37,7 @@ The application demonstrates the following:
 
 > **Project folder** refers to the **MipSdk-ProtectionApi-Cpp-Sample-Basic\MipSdk-ProtectionApi-Cpp-Sample-Basic** directory in the folder where you cloned the repository.
 
-1. From a command prompt, run: **git clone https://github.com/Azure-Samples/MipSdk-ProtectionApi-Cpp-Sample-Basic**
+1. From a command prompt, run: **git clone https://github.com/idaceappdev/mipsdk-protectionapi-cpp-sample-basic**
 1. Launch the project by double-clicking **MipSdk-ProtectionApi-Cpp-Sample-Basic.sln**
 1. When the project starts, set the project type to **x64**
 1. Right click the project in Visual Studio and select **Manage NuGet Packages**
